@@ -25,6 +25,7 @@ function addToCart(item) {
 }
 
 function viewCart() {
+<<<<<<< HEAD
   var keyArray = getKeys();
   var message;
   
@@ -53,6 +54,47 @@ function total() {
   
   for (var j=0; j < cart.length; j++) {
     sum =+ sum + parseInt(cart[j][keyArray[j]]);
+=======
+  var firstElement;
+  var middleElements;
+  var lastElement;
+  var keyArray = [];
+  
+  for (var i=0; i < cart.length; i++) {
+        keyArray[i] = Object.keys(cart[i]);
+        console.log("Key: ");
+        console.log(keyArray[i]);
+  }
+
+  if (cart.length === 0) {
+    console.log("Your shopping cart is empty");
+  } else if (cart.length === 1) {
+    firstElement = cart.slice(0, 1);
+    var firstKey = Object.keys(firstElement[0]);
+    console.log(firstKey);
+    console.log(`In your cart, you have ${firstKey} at ${firstElement[0][firstKey]}.`);    
+  } else if (cart.length === 2) {
+    firstElement = cart.slice(0, 1);    
+    lastElement = cart.slice(cart.length-1, cart.length);       
+    console.log(firstElement);
+  } else {
+    firstElement = cart.slice(0, 1);     
+    middleElements = cart.slice(1, cart.length-1);
+    lastElement = cart.slice(cart.length-1, cart.length);
+
+    console.log(`In your cart, you have `);
+    console.log(`${keyArray[0]} at $firstElement[keyArray[0]]`);
+  }
+
+}
+
+function total() {
+  // write your code here
+  var sum = 0;
+  for (var i=0; i < cart.length; i++)
+  {
+    sum += sum + cart[i][keyArray[i]];
+>>>>>>> 648fe77113dd27915c9fc7dfa23f3db660a7ef22
   }
   return sum;
 }
